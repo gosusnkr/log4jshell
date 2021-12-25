@@ -1,4 +1,4 @@
-# log4jshell
+# log4jshell demonstration
 log4j setup demonstration
 
 
